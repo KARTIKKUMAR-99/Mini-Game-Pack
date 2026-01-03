@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <style type="text/css" media="all">
+    *{
+      margin:0;
+      padding:0;
+    }
+    body{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+    }
+    .interface{
+      width:320px;
+      height:600px;
+      border-radius:15px;
+      box-shadow:0px 0px 3px gray;
+    }
+    h4{
+      text-align:center;
+      padding-top:10px;
+      font-size:30px;
+      font-weight:300;
+      background:#b8e2f4;
+      border-radius:15px 15px 0px 0px;
+    }
+    .flex{
+      display:flex;
+      gap:5px;
+      align-items:center;
+      height:50px;
+      border-radius:10px 10px 0px 0px;
+      background:#ffe1f5fe;
+    }
+    .flex img{
+      width:40px;
+      height:40px;
+      margin-left:10px;
+    }
+    .flex h3{
+      font-size:26px;
+      font-weight:400;
+    }
+    .Gusse-Number{
+      width:95%;
+      height:120px;
+      border-radius:10px;
+      box-shadow:0px 0px 3px;
+      margin:8px;
+     margin-top:14px;
+    }
+    
+    p{
+      color: gray;
+      padding-left:5px;
+    }
+    button{
+      width:130px;
+      height:35px;
+      background:#1e90ff;
+      border:none;
+      color:white;
+      font-size:19px;
+      border-radius:10px;
+      box-shadow:0px 0px 2px black;
+      margin-top:8px;
+      margin-left:90px;
+    }
+    .Dice-roll{
+      width:95%;
+      height:120px;
+      border-radius:10px;
+      box-shadow:0px 0px 3px;
+      margin:8px;
+     margin-top:14px;
+    }
+    .Rock-Paper{
+      width:95%;
+      height:120px;
+      border-radius:10px;
+      box-shadow:0px 0px 3px;
+      margin:8px;
+       margin-top:14px;
+    }
+    .speed-test{
+      width:95%;
+      height:120px;
+      border-radius:10px;
+      box-shadow:0px 0px 3px;
+      margin:8px;
+      margin-top:14px;
+    }
+    .GusseInterface{
+      width:320px;
+      height:350px;
+      border-radius:15px;
+      box-shadow:0px 0px 3px gray;
+      display:none;
+    }
+    .DiceInterface{
+      width:320px;
+      height:350px;
+      border-radius:15px;
+      box-shadow:0px 0px 3px gray;
+      display:none;
+    }
+    .RockInterface{
+      width:320px;
+      height:340px;
+      border-radius:15px;
+      box-shadow:0px 0px 3px gray;
+      display:none;
+    }
+    .SpeedInterface{
+      width:320px;
+      height:280px;
+      border-radius:15px;
+      box-shadow:0px 0px 3px gray;
+      display:none;
+    }
+    img{
+      width:35px;
+      height:35px;
+      margin:15px;
+    }
+    h5{
+      font-size:24px;
+      font-weight:300;
+      background:#b8e2f4;
+      border-radius:15px 15px 0px 0px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+ padding-right:70px;
+    }
+    .what{
+    padding-right:50px;
+    }
+    .box{
+      width:90%;
+      height:180px;
+      box-shadow:0px 0px 2px;
+      margin:15px;
+      border-radius:5px;
+    }
+    h3{
+      font-weight:400;
+      font-size:20px;
+      padding:10px;
+      text-align:center;
+    }
+    input{
+      border-bottom:1px solid gray;
+      outline:none;
+      width:230px;
+      border-top:none;
+      border-right:none;
+      border-left:none;
+      margin:15px;
+      font-size:18px;
+    }
+    #insideStart{
+      width:200px;
+      margin-left:60px;
+      height:35px;
+      font-size:18px;
+      background:rgba(20,814,4,0.2);
+      color:black;
+    }
+    #insideStart:hover{
+      box-shadow:0px 0px 4px black;
+     transition:all 0.2s ease;
+    }
+    .DiceInterface .box{
+      height:110px;
+      display:flex;
+      justify-content:space-around;
+    }
+    .box img{
+      width:70px;
+      height:70px;
+      
+    }
+    .dice1,.dice2{
+      animation:shake 0.8s ease-in;
+    }
+  
+    @keyframes shake{
+      0%{
+        transform:translateX(2px) translateY(2px);
+      }
+      20%{
+        transform:translateX(-2px) translateY(-2px);
+      }
+      40%{
+        transform:translateX(2px) translateY(2px);
+      }
+      60%{
+        transform:translateX(-2px) translateY(-2px);
+      }
+      80%{
+        transform:translateX(2px) translateY(2px);
+      }
+      100%{
+        transform:translateX(-2px) translateY(-2px);
+      }
+    }
+    #dicebutton{
+      width:200px;
+      background:rgba(255,0,20,0.3);
+      margin-left:60px;
+    }
+    .diceresult{
+      width:230px;
+      background:rgba(55,0,20,0.3);
+      margin-top:20px;
+      margin-left:50px;
+      height:50px;
+      border-radius:10px;
+      box-shadow:0px 0px 2px black;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+    .timer{
+      font-size:24px;
+      font-weight:400;
+      padding:8px;
+      border-bottom:1px solid black;
+    }
+    .counter{
+      text-align:right;
+      padding:8px;
+      font-size:17px;
+    }
+    .SpeedInterface .box{
+      height:130px;
+    }
+    #speedstart{
+      width:200px;
+      margin-left:60px;
+      background:rgba(28,25,200,0.3);
+    color:black;
+    }
+    #result{
+      text-align:center;
+      margin-top:8px;
+    }
+    .RockInterface .box{
+      height:110px;
+      display:flex;
+      justify-content:space-around;
+    }
+   .RockInterface .box img{
+     width:55px;
+     height:55px;
+     box-shadow:0px 0px 2px;
+     padding:7px;
+     border-radius:5px;
+   } 
+   #play{
+     width:200px;
+     margin-left:60px;
+     background:#372882;
+   }
+   .mode{
+     width:250px;
+     height:70px;
+     background:#d21404;
+     color:white;
+     margin-left:35px;
+     border-radius:8px;
+     box-shadow:0px 0px 3px black;
+     display:flex;
+     justify-content:center;
+     align-items:center;
+     font-size:18px;
+   }
+   #thirdresult{
+     font-size:22px;
+     text-align:center;
+  padding-top:10px;
+   }
+   
+  </style>
+</head>
+
+<body>
+  <div class="interface">
+    <h4>Mini Game Pack</h4>
+    <div class="Gusse-Number">
+      <div class="flex">
+      <img src="target.png">
+      <h3>Gusse Number</h3>
+      </div>
+      <p>Gusse the Correct Numbers</p>
+      <button id="gusse">Play Game</button>
+    </div>
+    <div class="Dice-roll">
+        <div class="flex">
+      <img src="dice.png">
+      <h3>Dice Game</h3>
+      </div>
+      <p>Roll & test your luck</p>
+      <button id="dice">Play Game</button>
+    </div>
+    <div class="Rock-Paper">
+        <div class="flex">
+      <img src="rock.png">
+      <h3>Rock Paper</h3>
+      </div>
+      <p>Play Against Computer</p>
+      <button id="rock">Play Game</button>
+    </div>
+    <div class="speed-test">
+        <div class="flex">
+      <img src="speed.png">
+      <h3>Speed Test</h3>
+      </div>
+      <p>Test Your Click Speed</p>
+      <button id="speed">Play Game</button>
+    </div>
+  </div>
+  <div class="GusseInterface">
+  <h5><img class="back" src="back.png">Gusse Number</h5>
+   <div class="box">
+      <h3>Gusse Number Between <br>1 to 100</h3>
+      <input id="first" placeholder="Enter gusse">
+      <button id="submitGusse">Submit</button>
+    </div>
+    <button id="insideStart">Start</button>
+    <p id="result"></p>
+  </div>
+  <div class="DiceInterface">
+    <h5><img class="back" src="back.png">Dice Roll Game</h5>
+    <div class="box">
+      <img id="dice1" src="dicefive.png">
+      <img id="dice2" src="dicesix.png"/>
+    </div>
+    <button id="dicebutton">Dice Roll</button>
+    <div class="diceresult">Your Result will be here</div>
+  </div>
+  <div class="RockInterface">
+     <h5 class="what"><img class="back" src="back.png">Rock Paper Game</h5>
+     <div class="box">
+       <img id="rockImg" src="rock2.png">
+       <img id="scissorsImg" src="scissors.png">
+       <img id="paperImg" src="paper.png">
+     </div>
+     <div class="mode">Computer Chosse ?</div>
+    <button id=play>Play</button>
+  <p id="thirdresult"></p>
+  </div>
+  <div class="SpeedInterface">
+    <h5 class="what"><img class="back" src="back.png">Speed Test Game</h5>
+    <div class="box">
+      <div class="counter">Clicks : 0</div>
+
+    <div class="timer">Time : 10s</div>
+    <button id="click">Click</button>
+    </div>
+ <button id="speedstart">Start</button>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
