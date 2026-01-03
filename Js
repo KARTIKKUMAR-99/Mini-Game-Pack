@@ -1,0 +1,209 @@
+let guessGame = document.getElementById("gusse");
+let speedGame = document.getElementById("speed");
+let diceGame = document.getElementById("dice");
+let rockGame = document.getElementById("rock");
+
+let back = document.querySelectorAll(".back");
+let guessGame2 = document.querySelector(".Gusse-Number");
+let speedGame2 = document.querySelector(".speed-test");
+let diceGame2 = document.querySelector(".Dice-roll");
+let rockGame2 = document.querySelector(".Rock-Paper");
+let interfacePage = document.querySelector(".interface");
+
+let gusseInterface = document.querySelector(".GusseInterface");
+let diceInterface = document.querySelector(".DiceInterface");
+
+let rockInterface = document.querySelector(".RockInterface");
+
+let speedInterface = document.querySelector(".SpeedInterface");
+
+
+guessGame.addEventListener("click",()=>{
+  interfacePage.style.display = "none"
+  speedInterface.style.display = "none"
+  rockInterface.style.display = "none"
+  diceInterface.style.display = "none"
+  gusseInterface.style.display = "block"
+});
+guessGame2.addEventListener("click",()=>{
+  interfacePage.style.display = "none"
+  speedInterface.style.display = "none"
+  rockInterface.style.display = "none"
+  diceInterface.style.display = "none"
+  gusseInterface.style.display = "block"
+});
+diceGame.addEventListener("click",()=>{
+  interfacePage.style.display = "none"
+  speedInterface.style.display = "none"
+  rockInterface.style.display = "none"
+  diceInterface.style.display = "block"
+  gusseInterface.style.display = "none"
+});
+diceGame2.addEventListener("click",()=>{
+  interfacePage.style.display = "none"
+  speedInterface.style.display = "none"
+  rockInterface.style.display = "none"
+  diceInterface.style.display = "block"
+  gusseInterface.style.display = "none"
+});
+rockGame.addEventListener("click",()=>{
+  interfacePage.style.display = "none"
+  speedInterface.style.display = "none"
+  rockInterface.style.display = "block"
+  diceInterface.style.display = "none"
+  gusseInterface.style.display = "none"
+});
+rockGame2.addEventListener("click",()=>{
+  interfacePage.style.display = "none"
+  speedInterface.style.display = "none"
+  rockInterface.style.display = "block"
+  diceInterface.style.display = "none"
+  gusseInterface.style.display = "none"
+});
+speedGame.addEventListener("click",()=>{
+  interfacePage.style.display = "none"
+  speedInterface.style.display = "block"
+  rockInterface.style.display = "none"
+  diceInterface.style.display = "none"
+  gusseInterface.style.display = "none"
+});
+speedGame2.addEventListener("click",()=>{
+  interfacePage.style.display = "none"
+  speedInterface.style.display = "block"
+  rockInterface.style.display = "none"
+  diceInterface.style.display = "none"
+  gusseInterface.style.display = "none"
+});
+
+back.forEach((back)=>{
+  back.addEventListener("click",()=>{
+   interfacePage.style.display = "block"
+  speedInterface.style.display = "none"
+  rockInterface.style.display = "none"
+  diceInterface.style.display = "none"
+  gusseInterface.style.display = "none"
+  });
+})
+let result = document.getElementById("result");
+
+let first = document.getElementById("first");
+let submitGusse = document.getElementById("submitGusse");
+let insideGamestart = document.getElementById("insideStart");
+submitGusse.addEventListener("click",()=>{
+  let random = Math.floor(Math.random() *100);
+  result.innerText = random
+  if(first.value >= random){
+    insideGamestart.innerHTML = "Greater Than try Again" 
+  }
+  else if(first.value <= random){
+    insideGamestart.innerHTML = "Very low try Again"
+  }
+  else if(first.value === random){
+    insideGamestart.innerHTML= "  🎉Congrate Correct try Again"
+  }
+})
+
+insideGamestart.addEventListener("click",()=>{
+  first.value = ""
+  insideGamestart.innerHTML = "Try Again"
+  result.innerHTML = ""
+});
+
+let box = document.querySelector(".box");
+let diceImage1 = document.getElementById("dice1");
+let diceImage2 = document.getElementById("dice2");
+let dicebutton = document.getElementById("dicebutton");
+let diceresult = document.querySelector(".diceresult");
+
+let images = ["diceone.png","dicetwo.png","dicethree.png","dicefour.png","dicefive.png","dicesix.png"]
+
+dicebutton.addEventListener("click",()=>{
+ let random1 = Math.floor(Math.random()* images.length);
+let random2 = Math.floor(Math.random()* images.length);
+
+diceImage1.classList.add("dice1")
+diceImage2.classList.add("dice2")
+ 
+ let imageUrl1 = images[random1]
+ let imageUrl2 = images[random2]
+ 
+ diceImage1.src = imageUrl1 
+ diceImage2.src = imageUrl2 
+ 
+ let firstdiceValue = random1 + 1 
+ let seconddiceValue = random2 + 1
+ diceresult.innerHTML = `Your Dice is   ${firstdiceValue}  ${seconddiceValue} Total is ${firstdiceValue + seconddiceValue}` ;
+
+})
+
+let h4 = document.querySelector("h2")
+let counter = document.querySelector(".counter");
+let timer = document.querySelector(".timer");
+let click = document.getElementById("click");
+let speedstart = document.getElementById("speedstart");
+let count = 0;
+let timing = 0; 
+ 
+ let timerstart = 15;
+speedstart.addEventListener("click",()=>{
+ count = 0;
+ click.disabled = false
+ counter.innerHTML = "Click : 0"
+timing = setInterval(()=>{
+  timerstart--
+ timer.innerHTML = `Timer is : ${timerstart}`
+ 
+  if(timerstart === 0){
+   timer.textContent = "Timer is Up"
+  clearInterval(timing)
+  timerstart = 15;
+  click.disabled = true
+  
+ }
+},1000);
+});
+click.addEventListener("click",()=>{
+  count++ 
+counter.innerHTML = "Click : " + count
+});
+
+let play = document.getElementById("play");
+let thirdResult = document.getElementById("thirdresult");
+let computerDice = document.querySelector(".mode");
+
+let rockBtn = document.getElementById("rockImg");
+let scissorsBtn = document.getElementById("scissorsImg")
+let paperBtn = document.getElementById("paperImg")
+
+let computer = ["rock","paper","scissors"];
+
+let userChoice = "rock"
+
+rockBtn.addEventListener("click",()=>{
+  userChoice = "rock"
+});
+scissorsBtn.addEventListener("click",()=>{
+  userChoice = "scissors"
+})
+paperBtn.addEventListener("click",()=>{
+  userChoice = "paper"
+})
+play.addEventListener("click",()=>{
+  thirdResult.innerHTML = ""
+  computerDice.innerHTML = "" 
+
+let random = Math.floor(Math.random() * computer.length);
+random = computer[random]
+  
+  computerDice.innerHTML = "Computer Decided " + random
+  if(userChoice === random){
+    thirdResult.innerHTML = "Draw😫"
+  }
+  else if((userChoice === "rock" && random === "scissors") || (userChoice === "scissors" && random === "paper") || (userChoice === "paper" && random === "rock")){
+    
+    thirdResult.innerHTML = "User Win🎉"
+  }
+  else{
+    thirdResult.innerHTML = "Computer Win🎉"
+  }
+})
